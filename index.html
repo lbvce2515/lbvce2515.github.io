@@ -10,7 +10,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
         body {
-            width: 1100px;
+            width: 900px;
             margin-left: auto;
             margin-right: auto;
             font-family: 'Nunito';
@@ -22,7 +22,35 @@
             height: 1px;
             background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
         }
+
+        button {
+            width: 150px;
+            border-radius: 5px;
+            font-size: 20px;
+        }
+
+        th {
+            width: 150px;
+            font-size: 20px;
+        }
+
+        td {
+            width: 150px;
+            height: 150px;
+        }
+
+        td img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
     </style>
+
+    <script>
+        function chgDataset(ds) {
+            alert(ds);
+        }
+    </script>
 </head>
 
 <body>
@@ -37,32 +65,117 @@
     </center>
     
     <br/>
-
-    <table align=center width=800px>
-        <center>
-            <img src="imgs/fig_qual.png" width=1000px />
-        </center>
-    </table>
+    
+    <center>
+        <img src="imgs/fig_qual.png" width=850px />
+    </center>
 
     <br />
 
     <center>
-        <h2>
-            Abstract
-        </h2>
+        <h2>Abstract</h2>
+        <div style="width: 750px; margin: 0 auto; text-align=center; text-align: justify; text-justify: inter-ideograph;">
+            Video editing tools are widely used nowadays for digital design. Although the demand for these tools is high, the prior knowledge required makes it difficult for novices to get started. Systems that could follow natural language instructions to perform automatic editing would significantly improve accessibility. This paper introduces the language-based video editing (LBVE) task, which allows the model to edit, guided by text instruction, a source video into a target video. LBVE contains two features: 1) the scenario of the source video is preserved instead of generating a completely different video; 2) the semantic is presented differently in the target video, and all changes are controlled by the given instruction. We propose a Multi-Modal Multi-Level Transformer (M<sup>3</sup>L-Transformer) to carry out LBVE. The M<sup>3</sup>L-Transformer dynamically learns the correspondence between video perception and language semantic at different levels, which benefits both the video understanding and video frame synthesis. We build three new datasets for evaluation, including two diagnostic and one from natural videos with human-labeled text. Extensive experimental results show that M<sup>3</sup>L-Transformer is effective for video editing and that LBVE can lead to a new field toward vision-and-language research.
+        </div>
     </center>
-    <div style="width: 750px; margin: 0 auto; text-align=center; text-align: justify; text-justify: inter-ideograph;">
-        Video editing tools are widely used nowadays for digital design. Although the demand for these tools is high, the prior knowledge required makes it difficult for novices to get started. Systems that could follow natural language instructions to perform automatic editing would significantly improve accessibility. This paper introduces the language-based video editing (LBVE) task, which allows the model to edit, guided by text instruction, a source video into a target video. LBVE contains two features: 1) the scenario of the source video is preserved instead of generating a completely different video; 2) the semantic is presented differently in the target video, and all changes are controlled by the given instruction. We propose a Multi-Modal Multi-Level Transformer (M<sup>3</sup>L-Transformer) to carry out LBVE. The M<sup>3</sup>L-Transformer dynamically learns the correspondence between video perception and language semantic at different levels, which benefits both the video understanding and video frame synthesis. We build three new datasets for evaluation, including two diagnostic and one from natural videos with human-labeled text. Extensive experimental results show that M<sup>3</sup>L-Transformer is effective for video editing and that LBVE can lead to a new field toward vision-and-language research.
-    </div>
 
     <br />
-    <hr>
+    <hr />
 
     <center>
-        <h2>
-            Qualitative Examples
-        </h2>
+        <h2>Qualitative Examples</h2>
+        <button onclick="chgDataset('s-mnist')">S-MNIST</button>
+        &nbsp;&nbsp;
+        <button onclick="chgDataset('d-mnist')">D-MNIST</button>
+        &nbsp;&nbsp;
+        <button onclick="chgDataset('e-clevr')">E-CLEVR</button>
+        &nbsp;&nbsp;
+        <button onclick="chgDataset('e-jester')">E-JESTER</button>
+        <br />
+
+        <br />
+
+        <table style="border-collapse: collapse;">
+            <tr>
+                <th style="width: 200px;">Instruction</th>
+                <th>Source</th>
+                <th>Ground Truth</th>
+                <th>Ours</th>
+            </tr>
+
+            <tr>
+                <td id="ins-0">change the number to 7</td>
+                <td><img src="s-mnist/src-0.gif" style="width: 128px;" id="src-0" /></td>
+                <td><img src="s-mnist/tgt-0.gif" style="width: 128px;" id="tgt-0" /></td>
+                <td><img src="s-mnist/our-0.gif" style="width: 128px;" id="our-0" /></td>
+            </tr>
+
+            <tr>
+                <td id="ins-1">change the number to 7</td>
+                <td><img src="s-mnist/src-1.gif" style="width: 128px;" id="src-1" /></td>
+                <td><img src="s-mnist/tgt-1.gif" style="width: 128px;" id="tgt-1" /></td>
+                <td><img src="s-mnist/our-1.gif" style="width: 128px;" id="our-1" /></td>
+            </tr>
+
+            <tr>
+                <td id="ins-2">change the number to 3</td>
+                <td><img src="s-mnist/src-2.gif" style="width: 128px;" id="src-2" /></td>
+                <td><img src="s-mnist/tgt-2.gif" style="width: 128px;" id="tgt-2" /></td>
+                <td><img src="s-mnist/our-2.gif" style="width: 128px;" id="our-2" /></td>
+            </tr>
+
+            <tr>
+                <td id="ins-3">change the direction to lower left</td>
+                <td><img src="s-mnist/src-3.gif" style="width: 128px;" id="src-3" /></td>
+                <td><img src="s-mnist/tgt-3.gif" style="width: 128px;" id="tgt-3" /></td>
+                <td><img src="s-mnist/our-3.gif" style="width: 128px;" id="our-3" /></td>
+            </tr>
+
+            <tr>
+                <td id="ins-4">change the direction to lower right</td>
+                <td><img src="s-mnist/src-4.gif" style="width: 128px;" id="src-4" /></td>
+                <td><img src="s-mnist/tgt-4.gif" style="width: 128px;" id="tgt-4" /></td>
+                <td><img src="s-mnist/our-4.gif" style="width: 128px;" id="our-4" /></td>
+            </tr>
+
+            <tr>
+                <td id="ins-5">change the number to 8</td>
+                <td><img src="s-mnist/src-5.gif" style="width: 128px;" id="src-5" /></td>
+                <td><img src="s-mnist/tgt-5.gif" style="width: 128px;" id="tgt-5" /></td>
+                <td><img src="s-mnist/our-5.gif" style="width: 128px;" id="our-5" /></td>
+            </tr>
+
+            <tr>
+                <td id="ins-6">change the number to 2</td>
+                <td><img src="s-mnist/src-6.gif" style="width: 128px;" id="src-6" /></td>
+                <td><img src="s-mnist/tgt-6.gif" style="width: 128px;" id="tgt-6" /></td>
+                <td><img src="s-mnist/our-6.gif" style="width: 128px;" id="our-6" /></td>
+            </tr>
+
+            <tr>
+                <td id="ins-7">change the direction to lower right</td>
+                <td><img src="s-mnist/src-7.gif" style="width: 128px;" id="src-7" /></td>
+                <td><img src="s-mnist/tgt-7.gif" style="width: 128px;" id="tgt-7" /></td>
+                <td><img src="s-mnist/our-7.gif" style="width: 128px;" id="our-7" /></td>
+            </tr>
+
+            <tr>
+                <td id="ins-8">change the direction to lower right</td>
+                <td><img src="s-mnist/src-8.gif" style="width: 128px;" id="src-8" /></td>
+                <td><img src="s-mnist/tgt-8.gif" style="width: 128px;" id="tgt-8" /></td>
+                <td><img src="s-mnist/our-8.gif" style="width: 128px;" id="our-8" /></td>
+            </tr>
+
+            <tr>
+                <td id="ins-9">change the direction to lower left</td>
+                <td><img src="s-mnist/src-9.gif" style="width: 128px;" id="src-9" /></td>
+                <td><img src="s-mnist/tgt-9.gif" style="width: 128px;" id="tgt-9" /></td>
+                <td><img src="s-mnist/our-9.gif" style="width: 128px;" id="our-9" /></td>
+            </tr>
+        </table>
     </center>
+
+    <br />
 
 </body>
 
